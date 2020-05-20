@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+  <style>
+  ::placeholder {
+  font-size:10px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+
+ <div class="login">
+	<div class="panel panel-success">
+
+ <div class="panel-heading">
+	<center><h1>Emission of Co2 From Cars</h1></center></div></div>
+
+	<div class="panel-body">
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    <h3><b>
+	<div class="form-group">
+    	<label class="control-label col-md-6">Enter CYLINDERS : </label><div class="col-md-2"><input type="text" name="CYLINDERS" placeholder="CYLINDERS" required="required" /></div><div><br><br>
+    <div class="form-group">
+    	<label class="control-label col-md-6">Enter ENGINESIZE : </label><div class="col-md-2"><input type="text" name="ENGINESIZE" placeholder="ENGINESIZE" required="required" /></div><div><br><br>
+	<div class="form-group">
+    	<label class="control-label col-md-6">Enter FUELCONSUMPTION_CITY : </label><div class="col-md-2"><input type="text" name="FUELCONSUMPTION_CITY" placeholder="FUELCONSUMPTION_CITY" required="required" /></div><div><br><br>
+	<div class="form-group">
+    	<label class="control-label col-md-6">Enter FUELCONSUMPTION_HWY : </label><div class="col-md-2"><input type="text" name="FUELCONSUMPTION_HWY" placeholder="FUELCONSUMPTION_HWY" required="required" /></div><div><br><br>
+     <div class="form-group">
+    	<label class="control-label col-md-6">Enter FUELCONSUMPTION_COMB : </label><div class="col-md-2"><input type="text" name="FUELCONSUMPTION_COMB" placeholder="FUELCONSUMPTION_COMB" required="required" /></div><div><br><br>
+   	<div class="col-sm-offset-4 col-sm-2"><button type="submit" class="btn btn-primary btn-block btn-large">Predict Co2Emission</button></div>
+    </h3><b>
+    </form>
+</div>
+   <br><h2><b>
+   {{ prediction_text }}
+</b></h2>
+ </div>
+</div>
+</div>
+
+</body>
+</html>
